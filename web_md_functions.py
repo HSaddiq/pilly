@@ -5,7 +5,7 @@ from nltk.tokenize import sent_tokenize
 
 def get_drug_summary(drug_name, info_required):
     top_hit = ""
-    drug_search_url = "https://www.webmd.com/drugs/2/search?type=drugs&query=" + drug_name
+    drug_search_url = "https://www.webmd.com/drugs/2/search?type=drugs&query=" + drug_name.replace(" ","%20")
     response = requests.get(drug_search_url)
 
     if drug_search_url != response.url:
@@ -61,3 +61,5 @@ def get_drug_summary(drug_name, info_required):
 
     summarized = summarize(text, words=30)
     return summarized
+
+print(get_drug_summary("anabolic steroids","uses"))
