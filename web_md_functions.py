@@ -1,6 +1,7 @@
 from summa.summarizer import summarize
 import requests
 from bs4 import BeautifulSoup
+from nltk.tokenize import sent_tokenize
 
 def get_drug_summary(drug_name, info_required):
     top_hit = ""
@@ -47,8 +48,15 @@ def get_drug_summary(drug_name, info_required):
 
     text = text.replace(".", ". ")
     text = text.replace(")", ") ")
+    text_sentences = sent_tokenize(text)
 
+    text_sentences = [sentence for sentence in text_sentences if
+                      "doctor" not in sentence.lower() and "www" not in sentence.lower() and "likelihood" not in sentence.lower()]
 
+    text = ""
+
+    for sentence in text_sentences:
+        text += sentence + " "
 
     summarized = summarize(text, words=30)
     return summarized
