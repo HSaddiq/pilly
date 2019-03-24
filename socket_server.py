@@ -10,13 +10,12 @@ s.listen(0)
 print("waiting to connect to client")
 conn, addr = s.accept()
 print("got connection with client")
-with conn:
-    print('Connected by', addr)
-    while True:
-        # data = conn.recv(1024)
-        # if data:
-        #     print(repr(data))
-        # else:
-        #     break
+print('Connected by', addr)
+while True:
+    # data = conn.recv(1024)
+    # if data:
+    #     print(repr(data))
+    # else:
+    #     break
 
-        conn.sendall(b"101010000010011011")
+    conn.sendall(b"101010000010011011")
