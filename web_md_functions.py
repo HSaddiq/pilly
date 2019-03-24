@@ -12,7 +12,6 @@ def get_drug_summary(drug_name, info_required):
     if drug_search_url != response.url:
         top_hit = response.url
 
-
     else:
         try:
             search_soup = BeautifulSoup(response.text, 'html.parser')
