@@ -21,22 +21,38 @@ def launch():
 @ask.intent("DrugInformationIntent", convert={ "DrugName": "DrugName" })
 def DrugInformationIntentHandler(DrugName):
     print("Drug: " + DrugName)
-    return statement("WebMD says " + get_drug_summary(DrugName, "uses"))
+    info = get_drug_summary(DrugName, "uses")
+    if(not info):
+        return statement("Sorry, I couldn't find " + DrugName + " on WebMD")
+    else:
+        return statement("WebMD says " + info)
 
 @ask.intent("DrugSideEffectsIntent", convert={ "DrugName": "DrugName" })
 def DrugSideEffectsHandler(DrugName):
     print("Drug: " + DrugName)
-    return statement("From WebMD on the side effects of " + DrugName + ", " + get_drug_summary(DrugName, "side effects"))
+    info = get_drug_summary(DrugName, "side effects")
+    if(not info):
+        return statement("Sorry, I couldn't find " + DrugName + " on WebMD")
+    else:
+        return statement("From WebMD on the side effects of " + DrugName + ", " + info)
 
 @ask.intent("DrugPrecautionsIntent", convert={ "DrugName": "DrugName" })
 def DrugPrecautionsHandler(DrugName):
     print("Drug: " + DrugName)
-    return statement("From WebMD on precautions when taking " + DrugName + ", " + get_drug_summary(DrugName, "precautions"))
+    info = get_drug_summary(DrugName, "precautions")
+    if(not info):
+        return statement("Sorry, I couldn't find " + DrugName + " on WebMD")
+    else:
+        return statement("From WebMD on precautions when taking " + DrugName + ", " + info)
 
 @ask.intent("DrugInteractionsIntent", convert={ "DrugName": "DrugName" })
 def DrugInteractionsHandler(DrugName):
     print("Drug: " + DrugName)
-    return statement("From WebMD on drug interactions with " + DrugName + ", " + get_drug_summary(DrugName, "interactions"))
+    info = get_drug_summary(DrugName, "interactions")
+    if(not info):
+        return statement("Sorry, I couldn't find " + DrugName + " on WebMD")
+    else:
+        return statement("From WebMD on drug interactions with " + DrugName + ", " + info)
 
 @ask.intent("AMAZON.StopIntent")
 def stop():
