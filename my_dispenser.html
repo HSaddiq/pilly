@@ -1,0 +1,142 @@
+<html>
+	<head>
+		<title>Form</title>
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+		<style type="text/css">
+		.form-style-8 h2{
+			background: #DDD;
+			text-transform: uppercase;
+			font-family: 'Open Sans Condensed', sans-serif;
+			color: #222;
+			font-size: 18px;
+			font-weight: 100;
+			padding: 20px;
+			margin: 30px -30px 30px -30px;
+		}
+		.form-style-8 input[type="text"],
+		.form-style-8 input[type="date"],
+		.form-style-8 input[type="datetime"],
+		.form-style-8 input[type="email"],
+		.form-style-8 input[type="number"],
+		.form-style-8 input[type="search"],
+		.form-style-8 input[type="time"],
+		.form-style-8 input[type="url"],
+		.form-style-8 input[type="password"],
+		.form-style-8 textarea,
+		.form-style-8 select 
+		{
+			box-sizing: border-box;
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			outline: none;
+			display: block;
+			width: 100%;
+			padding: 7px;
+			border: none;
+			border-bottom: 1px solid #ddd;
+			background: transparent;
+			margin-bottom: 10px;
+			font: 16px Arial, Helvetica, sans-serif;
+			height: 45px;
+		}
+		.form-style-8 textarea{
+			resize:none;
+			overflow: hidden;
+		}
+		.form-style-8 input[type="button"], 
+		.form-style-8 input[type="submit"]{
+			-moz-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+			-webkit-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+			box-shadow: inset 0px 1px 0px 0px #45D6D6;
+			background-color: #2CBBBB;
+			border: 1px solid #27A0A0;
+			display: inline-block;
+			cursor: pointer;
+			color: #FFFFFF;
+			font-family: 'Open Sans Condensed', sans-serif;
+			font-size: 14px;
+			padding: 8px 18px;
+			text-decoration: none;
+			text-transform: uppercase;
+		}
+		.form-style-8 input[type="button"]:hover, 
+		.form-style-8 input[type="submit"]:hover {
+			background:linear-gradient(to bottom, #34CACA 5%, #30C9C9 100%);
+			background-color:#34CACA;
+		}
+			* {
+				font-family: helvetica;
+			}
+			#main {
+				margin: 40px auto;
+				width: 800px;
+				border: 3px;
+				border-style: solid;
+				border-radius: 8px;
+				padding: 30px;
+			}
+		    nav a {
+		    	padding: 20px;
+		    }
+
+		    #logo {
+		    	width: 150px;
+			    float: right;
+			    margin-top: -80px;
+		    }
+
+		    blockquote{
+				font-size: 20px;
+				background: #f9f9f9;
+				border-left: 10px solid #ccc;
+				margin: .5em 10px;
+				padding: 0 10px;
+				quotes: "\201C""\201D""\2018""\2019";
+				padding: 10px 20px;
+				line-height: 1.4;
+			}
+
+			blockquote:before {
+				content: open-quote;
+				display: inline;
+				height: 0;
+				line-height: 0;
+				left: -10px;
+				position: relative;
+				top: 30px;
+				color: #ccc;
+				font-size: 48px;
+			}
+
+			p.quotation {
+			  margin: 0 0 0 10px;
+			}
+
+		</style>
+	</head>
+	<body>
+		<div id="main">
+			<h1>Testing page</h1>
+			<img src="https://static1.squarespace.com/static/5908027c20099e374ad3d70e/t/595146d986e6c0065517a39a/1498498253443/symbol-of-caduceus.jpg?format=1500w" id="logo">
+			<hr>
+			<nav>
+				<a href="#">Home</a>
+				<a href="#">My Dispenser</a>
+				<a href="#">Admin</a>
+				<a href="#">Other</a>
+			</nav>
+			<hr>
+			<div class="form-style-8">
+			  <h2>Change drug details</h2>
+			  <form>
+			  	<p>Slot number 1</p>
+			    <input type="text" name="drugName" placeholder="Drug name" />
+			    <input type="text" name="dose" placeholder="Dose" />
+			    <label for="isEnabled">Enable slot</label>
+			    <input type="checkbox" name="isEnabled" /><br><br>
+			    <input type="button" value="submit" />
+			  </form>
+			</div>
+		</div>
+	</body>
+</html>
