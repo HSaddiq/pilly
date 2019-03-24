@@ -3,21 +3,27 @@ import requests
 from bs4 import BeautifulSoup
 from nltk.tokenize import sent_tokenize
 
+
 def get_drug_summary(drug_name, info_required):
     top_hit = ""
-    drug_search_url = "https://www.webmd.com/drugs/2/search?type=drugs&query=" + drug_name
+    drug_search_url = "https://www.webmd.com/drugs/2/search?type=drugs&query=" + drug_name.replace(" ", "%20")
     response = requests.get(drug_search_url)
 
     if drug_search_url != response.url:
         top_hit = response.url
 
     else:
-        search_soup = BeautifulSoup(response.text, 'html.parser')
+        try:
+            search_soup = BeautifulSoup(response.text, 'html.parser')
 
-        results = search_soup.find(class_="exact-match")
-        first_result = results.find("li").find("a")
+            results = search_soup.find(class_="exact-match")
+            first_result = results.find("li").find("a")
 
-        top_hit = "https://www.webmd.com" + first_result.get("href")
+            top_hit = "https://www.webmd.com" + first_result.get("href")
+
+        #if no drug found:
+        except:
+            return False
 
     # grab information about drug:
 
@@ -60,3 +66,6 @@ def get_drug_summary(drug_name, info_required):
 
     summarized = summarize(text, words=30)
     return summarized
+
+
+print(get_drug_summary("migraine tablets", "uses"))
